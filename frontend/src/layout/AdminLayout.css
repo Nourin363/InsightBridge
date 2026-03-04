@@ -1,0 +1,84 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: #14161a;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 240px;
+  background: #1c1f24;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 15px;
+  transition: width 0.3s ease;
+  border-right: 1px solid #2a2e35;
+}
+
+.admin-container.collapsed .sidebar {
+  width: 80px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #dcdcdc;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #9fa4ab;
+  text-align: left;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar button:hover {
+  background: #2a2e35;
+  color: #ffffff;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+/* MAIN */
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.logout-btn {
+  background: #2e333b;
+  border: none;
+  color: #e4e4e4;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #3a3f47;
+}
+
+
