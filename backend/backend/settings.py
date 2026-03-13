@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,7 +29,9 @@ SECRET_KEY = 'django-insecure-st3-68vmadw*fl09ykr-9icfai+4x^g73m1$ip89)tjv_5g$2z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1",
+                  "localhost",
+                ]
 
 
 # Application definition
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'issues',
     'corsheaders',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +79,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+ASGI_APPLICATION = "backend.asgi.application"
 
 
 # Database
@@ -142,4 +150,8 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
-GEMINI_API_KEY  = "AIzaSyC_BDkLaZauwkTSXiRrOQdFxjoCJGrusGU"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
